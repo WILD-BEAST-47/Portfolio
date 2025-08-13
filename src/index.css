@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Creative Portfolio Design System - Bold, Modern, Eye-catching */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 220 26% 8%;
+    --foreground: 60 9% 98%;
+
+    --card: 220 26% 10%;
+    --card-foreground: 60 9% 98%;
+
+    --popover: 220 26% 8%;
+    --popover-foreground: 60 9% 98%;
+
+    /* Electric Brand Colors */
+    --primary: 280 100% 70%;
+    --primary-foreground: 220 26% 8%;
+
+    --secondary: 195 100% 60%;
+    --secondary-foreground: 220 26% 8%;
+
+    --muted: 220 26% 14%;
+    --muted-foreground: 218 11% 65%;
+
+    --accent: 45 100% 65%;
+    --accent-foreground: 220 26% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 280 100% 70%;
+
+    /* Creative Design Elements */
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%) 0%, hsl(195 100% 60%) 100%);
+    --gradient-secondary: linear-gradient(225deg, hsl(45 100% 65%) 0%, hsl(280 100% 70%) 100%);
+    --gradient-accent: linear-gradient(45deg, hsl(195 100% 60%) 0%, hsl(45 100% 65%) 100%);
+    --gradient-background: radial-gradient(ellipse at top, hsl(280 100% 70% / 0.1) 0%, transparent 50%);
+    
+    /* Creative Shadows */
+    --shadow-glow: 0 0 40px hsl(280 100% 70% / 0.3);
+    --shadow-neon: 0 0 20px hsl(195 100% 60% / 0.5), 0 0 40px hsl(280 100% 70% / 0.3);
+    --shadow-creative: 0 20px 40px -12px hsl(280 100% 70% / 0.4);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    /* Light mode for accessibility */
+    --background: 60 9% 98%;
+    --foreground: 220 26% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 26% 8%;
+    --primary: 280 100% 60%;
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 60%) 0%, hsl(195 100% 50%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
+    background-image: var(--gradient-background);
+    cursor: none; /* Hide default cursor globally */
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Creative Animations & Effects */
+@layer utilities {
+  /* Hide default cursor on all elements */
+  * {
+    cursor: none;
+  }
+  
+  /* Ensure interactive elements remain clickable and visible */
+  button, a, input, textarea, select, [role="button"], [tabindex] {
+    cursor: none;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 50;
+  }
+  
+  /* Ensure 3D mouse animation is visible and functional */
+  .fixed.inset-0.z-50 {
+    pointer-events: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 50 !important;
+  }
+  
+  /* Ensure Canvas elements are visible */
+  canvas {
+    pointer-events: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  
+  /* Ensure the 3D mouse follower container is always visible */
+  [data-r3f-canvas] {
+    pointer-events: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 50 !important;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  .neon-border {
+    box-shadow: var(--shadow-neon);
+  }
+  .creative-shadow {
+    box-shadow: var(--shadow-creative);
+  }
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  .morphing-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 8s ease-in-out infinite;
+  }
+  
+  /* Enhanced animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 1s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+  75% { border-radius: 60% 40% 60% 30% / 40% 30% 60% 50%; }
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mouse follower animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.8), 0 0 60px rgba(139, 92, 246, 0.5);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(2deg); 
+  }
+}
+
+/* Hexagonal clip-path */
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Slow spin animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 15s linear infinite;
+} 
