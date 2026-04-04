@@ -3,6 +3,8 @@ import { XpWindow } from "./XpWindow";
 import { ExplorerBody } from "./ExplorerBody";
 import { NotepadBody } from "./NotepadBody";
 import { MyComputerBody } from "./MyComputerBody";
+import { FigmaBody } from "./FigmaBody";
+import { GameBody } from "./GameBody";
 
 export function WindowLayer() {
   const { windows, getFolder } = useWindows();
@@ -30,6 +32,20 @@ export function WindowLayer() {
           return (
             <XpWindow key={win.id} win={win}>
               <MyComputerBody />
+            </XpWindow>
+          );
+        }
+        if (win.kind === "figma") {
+          return (
+            <XpWindow key={win.id} win={win}>
+              <FigmaBody />
+            </XpWindow>
+          );
+        }
+        if (win.kind === "game") {
+          return (
+            <XpWindow key={win.id} win={win}>
+              <GameBody />
             </XpWindow>
           );
         }

@@ -9,7 +9,7 @@ import {
 import type { FileEntry, FolderEntry } from "../data/portfolio";
 import { desktopFolders } from "../data/portfolio";
 
-export type WinKind = "explorer" | "notepad" | "welcome";
+export type WinKind = "explorer" | "notepad" | "welcome" | "figma" | "game";
 
 export type WindowState = {
   id: string;
@@ -32,6 +32,8 @@ type Ctx = {
   openFolder: (folder: FolderEntry) => void;
   openFile: (file: FileEntry) => void;
   openWelcome: () => void;
+  openFigma: () => void;
+  openGame: () => void;
   close: (id: string) => void;
   minimize: (id: string) => void;
   toggleMaximize: (id: string) => void;
@@ -56,6 +58,10 @@ const DEFAULT_W = 420;
 const DEFAULT_H = 340;
 const NOTEPAD_W = 480;
 const NOTEPAD_H = 380;
+const FIGMA_W = 960;
+const FIGMA_H = 680;
+const GAME_W = 380;
+const GAME_H = 420;
 
 export function WindowProvider({ children }: { children: ReactNode }) {
   const [windows, setWindows] = useState<WindowState[]>([]);
@@ -152,6 +158,68 @@ export function WindowProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const openFigma = useCallback(() => {
+    setWindows((prev) => {
+      const existing = prev.find((w) => w.kind === "figma");
+      if (existing) {
+        setFocusedId(existing.id);
+        return prev.map((w) =>
+          w.id === existing.id ? { ...w, minimized: false, z: nextZ() } : w
+        );
+      }
+      const offset = prev.length * 24;
+      const id = `figma-${Date.now()}`;
+      const z = nextZ();
+      setFocusedId(id);
+      return [
+        ...prev,
+        {
+          id,
+          kind: "figma",
+          title: "Figma",
+          x: 96 + offset,
+          y: 72 + offset,
+          w: FIGMA_W,
+          h: FIGMA_H,
+          z,
+          minimized: false,
+          maximized: false,
+        },
+      ];
+    });
+  }, []);
+
+  const openGame = useCallback(() => {
+    setWindows((prev) => {
+      const existing = prev.find((w) => w.kind === "game");
+      if (existing) {
+        setFocusedId(existing.id);
+        return prev.map((w) =>
+          w.id === existing.id ? { ...w, minimized: false, z: nextZ() } : w
+        );
+      }
+      const offset = prev.length * 20;
+      const id = `game-${Date.now()}`;
+      const z = nextZ();
+      setFocusedId(id);
+      return [
+        ...prev,
+        {
+          id,
+          kind: "game",
+          title: "Game",
+          x: 140 + offset,
+          y: 100 + offset,
+          w: GAME_W,
+          h: GAME_H,
+          z,
+          minimized: false,
+          maximized: false,
+        },
+      ];
+    });
+  }, []);
+
   const close = useCallback((id: string) => {
     setWindows((prev) => prev.filter((w) => w.id !== id));
     setFocusedId((cur) => (cur === id ? null : cur));
@@ -208,6 +276,8 @@ export function WindowProvider({ children }: { children: ReactNode }) {
       openFolder,
       openFile,
       openWelcome,
+      openFigma,
+      openGame,
       close,
       minimize,
       toggleMaximize,
@@ -224,6 +294,8 @@ export function WindowProvider({ children }: { children: ReactNode }) {
       openFolder,
       openFile,
       openWelcome,
+      openFigma,
+      openGame,
       close,
       minimize,
       toggleMaximize,

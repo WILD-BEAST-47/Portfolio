@@ -47,6 +47,8 @@ export function buildDefaultPositions(): Record<
 > {
   const positions: Record<string, { left: number; top: number }> = {
     computer: { left: 24, top: 24 },
+    "app:figma": { left: 24, top: 200 },
+    "app:game": { left: 132, top: 200 },
     recycle: recycleDefaultPosition(),
   };
   desktopFolders.forEach((f, i) => {

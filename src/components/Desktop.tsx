@@ -14,12 +14,16 @@ import {
 } from "../utils/desktopIconPositions";
 
 export function Desktop() {
-  const { openFolder, openWelcome } = useWindows();
+  const { openFolder, openWelcome, openFigma, openGame } = useWindows();
   const [recycleMsg, setRecycleMsg] = useState(false);
 
   const [positions, setPositions] = useState(() =>
     mergePositions(buildDefaultPositions(), loadSavedPositions())
   );
+
+  useEffect(() => {
+    openFigma();
+  }, [openFigma]);
 
   useEffect(() => {
     try {
@@ -61,6 +65,8 @@ export function Desktop() {
 
   const computerPos = positions.computer ?? defaults.computer;
   const recyclePos = positions.recycle ?? defaults.recycle;
+  const figmaPos = positions["app:figma"] ?? defaults["app:figma"];
+  const gamePos = positions["app:game"] ?? defaults["app:game"];
 
   const folderPositions = useMemo(() => {
     return desktopFolders.map((f) => {
@@ -99,6 +105,22 @@ export function Desktop() {
               onMove={(l, t) => moveIcon(`folder:${folder.id}`, l, t)}
             />
           ))}
+          <DesktopIcon
+            label="Figma"
+            variant="figma"
+            onOpen={openFigma}
+            left={figmaPos.left}
+            top={figmaPos.top}
+            onMove={(l, t) => moveIcon("app:figma", l, t)}
+          />
+          <DesktopIcon
+            label="Game"
+            variant="game"
+            onOpen={openGame}
+            left={gamePos.left}
+            top={gamePos.top}
+            onMove={(l, t) => moveIcon("app:game", l, t)}
+          />
           <DesktopIcon
             label="Recycle Bin"
             variant="bin"

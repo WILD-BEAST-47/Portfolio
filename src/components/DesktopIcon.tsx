@@ -6,6 +6,7 @@ import {
   type KeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { FIGMA_DESK_ICON_URL } from "../config/figmaDeskIcon";
 import {
   DRAG_THRESHOLD_PX,
   clampIconPosition,
@@ -13,7 +14,7 @@ import {
 
 type Props = {
   label: string;
-  variant: "folder" | "bin" | "computer";
+  variant: "folder" | "bin" | "computer" | "figma" | "game";
   onOpen: () => void;
   left: number;
   top: number;
@@ -111,6 +112,11 @@ export function DesktopIcon({
     zIndex: dragging ? 9999 : "auto",
   };
 
+  const picStyle: CSSProperties | undefined =
+    variant === "figma"
+      ? { backgroundImage: `url(${FIGMA_DESK_ICON_URL})` }
+      : undefined;
+
   return (
     <button
       type="button"
@@ -125,7 +131,11 @@ export function DesktopIcon({
       onKeyDown={onKeyDown}
       style={style}
     >
-      <span className={`desk-icon-pic desk-icon-${variant}`} aria-hidden />
+      <span
+        className={`desk-icon-pic desk-icon-${variant}`}
+        style={picStyle}
+        aria-hidden
+      />
       <span className="desk-icon-label">{label}</span>
     </button>
   );

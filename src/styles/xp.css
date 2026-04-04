@@ -1508,3 +1508,549 @@ button {
   background: linear-gradient(180deg, #ff9a8a 0%, #e05040 100%);
   color: #fff;
 }
+
+/* ——— Desktop: Figma & Game shortcuts ——— */
+/* Figma shortcut: background set in DesktopIcon (FIGMA_DESK_ICON_URL). */
+
+.desk-icon-game {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%238bc56a'/%3E%3Cstop offset='1' stop-color='%235a8c3a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='48' height='48' rx='10' fill='url(%23g)' stroke='%233d6628' stroke-width='1'/%3E%3Crect x='12' y='16' width='24' height='18' rx='5' fill='%234a7a38' stroke='%232d4a20'/%3E%3Ccircle cx='18' cy='25' r='2.5' fill='%23e8f0e0'/%3E%3Ccircle cx='30' cy='25' r='2.5' fill='%23e8f0e0'/%3E%3Cpath stroke='%23c8d8b8' stroke-width='2' stroke-linecap='round' d='M22 30h4'/%3E%3C/svg%3E");
+}
+
+/* ——— Mock Figma window ——— */
+.figma-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: #1e1e1e;
+  color: #e8e8e8;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 11px;
+  user-select: none;
+}
+
+.figma-app-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding: 0 10px;
+  background: #2c2c2c;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.figma-app-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.figma-app-dots {
+  color: #888;
+  letter-spacing: 2px;
+}
+
+.figma-app-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.figma-app-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.figma-app-share {
+  padding: 4px 14px;
+  border-radius: 6px;
+  border: 1px solid #0d6efd;
+  background: linear-gradient(180deg, #4a9eff 0%, #0b57d0 100%);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.figma-app-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa, #6366f1);
+  border: 1px solid #555;
+}
+
+.figma-app-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 8px;
+  background: #383838;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.figma-app-tools {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.figma-tool {
+  width: 32px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #ccc;
+  font-size: 13px;
+  line-height: 1;
+  cursor: default;
+}
+
+.figma-tool:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.figma-tool-active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #555;
+  color: #fff;
+}
+
+.figma-app-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.figma-app-zoom {
+  color: #aaa;
+  font-size: 11px;
+}
+
+.figma-projects-btn {
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1px solid #0acf83;
+  background: linear-gradient(180deg, #2dd4a3 0%, #0a9f6a 100%);
+  color: #0a1a14;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.figma-projects-btn:hover {
+  filter: brightness(1.06);
+}
+
+.figma-projects-btn-compact {
+  padding: 4px 10px;
+  font-weight: 600;
+}
+
+.figma-app-main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.figma-app-rail {
+  width: 44px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  gap: 12px;
+  background: #252525;
+  border-right: 1px solid #333;
+}
+
+.figma-rail-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #888;
+  font-size: 14px;
+  cursor: default;
+}
+
+.figma-rail-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.figma-app-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #2c2c2c;
+  border-right: 1px solid #333;
+  min-height: 0;
+}
+
+.figma-sidebar-head {
+  padding: 8px 10px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #888;
+}
+
+.figma-sidebar-projects {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 8px 10px;
+  padding: 8px 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.figma-sidebar-projects:hover {
+  border-color: #0acf83;
+  background: #333;
+}
+
+.figma-sidebar-projects-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #f24e1e 0%, #a259ff 40%, #1abcfe 70%, #0acf83 100%);
+}
+
+.figma-sidebar-projects-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.figma-sidebar-projects-title {
+  font-weight: 700;
+  color: #fff;
+}
+
+.figma-sidebar-projects-sub {
+  font-size: 10px;
+  color: #888;
+}
+
+.figma-sidebar-list {
+  padding: 0 8px 8px;
+  overflow: auto;
+  flex: 1;
+}
+
+.figma-sidebar-item {
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: #aaa;
+  cursor: default;
+}
+
+.figma-sidebar-item-muted {
+  opacity: 0.75;
+}
+
+.figma-sidebar-item-active {
+  background: rgba(10, 207, 131, 0.2);
+  color: #7dffc8;
+}
+
+.figma-app-canvas-wrap {
+  flex: 1;
+  min-width: 0;
+  background: #444;
+  overflow: auto;
+}
+
+.figma-app-canvas {
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #3c3c3c;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 20px 28px;
+  gap: 12px;
+}
+
+.figma-frame {
+  width: min(100%, min(92vw, 860px));
+  max-width: 860px;
+  aspect-ratio: 1440 / 900;
+  max-height: none;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.figma-frame-label {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.figma-frame-inner {
+  flex: 1;
+  min-height: 280px;
+  background: #fff;
+  border-radius: 1px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.figma-canvas-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+}
+
+.figma-frame-canvas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+}
+
+.figma-canvas-cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 16px;
+  text-align: center;
+  background: rgba(12, 12, 18, 0.82);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.figma-canvas-stage:hover .figma-canvas-cta {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.figma-canvas-cta-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.figma-canvas-cta-hint {
+  margin: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 280px;
+  line-height: 1.35;
+}
+
+.figma-canvas-cta-btn {
+  margin-top: 4px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1px solid #0acf83;
+  background: linear-gradient(180deg, #2dd4a3 0%, #0a9f6a 100%);
+  color: #0a1a14;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.figma-canvas-cta-btn:hover {
+  filter: brightness(1.08);
+}
+
+.figma-canvas-footnote {
+  margin: 0;
+  font-size: 10px;
+  color: #b0b0b0;
+  text-align: center;
+  max-width: 420px;
+  line-height: 1.4;
+}
+
+.figma-canvas-footnote-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #7ddbff;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+}
+
+.figma-canvas-footnote-btn:hover {
+  color: #fff;
+}
+
+@media (hover: none) {
+  .figma-canvas-cta {
+    opacity: 1;
+    pointer-events: auto;
+    inset: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(12, 12, 18, 0.92);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .figma-canvas-cta-title {
+    font-size: 12px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .figma-canvas-cta-hint {
+    display: none;
+  }
+
+  .figma-canvas-cta-btn {
+    margin-top: 0;
+  }
+}
+
+.figma-app-inspector {
+  width: 200px;
+  flex-shrink: 0;
+  background: #2c2c2c;
+  border-left: 1px solid #333;
+  padding: 10px;
+}
+
+.figma-insp-head {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.figma-insp-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #3a3a3a;
+  color: #ccc;
+}
+
+/* ——— Tic-tac-toe window ——— */
+.game-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  height: 100%;
+  min-height: 0;
+  padding: 16px;
+  background: linear-gradient(180deg, #f5f3eb 0%, #e8e4d8 100%);
+}
+
+.game-app-status {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(3, 56px);
+  gap: 4px;
+  padding: 8px;
+  background: #aca899;
+  border: 2px solid #7a7868;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.game-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid #6a90c8;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #fff 0%, #eef4ff 100%);
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a4488;
+  cursor: pointer;
+  font-family: Tahoma, "MS Sans Serif", Geneva, sans-serif;
+}
+
+.game-cell:hover {
+  background: linear-gradient(180deg, #fff8e8 0%, #ffe8c8 100%);
+}
+
+.game-cell:active {
+  transform: translateY(1px);
+}
+
+.game-reset {
+  padding: 6px 18px;
+  border-radius: 3px;
+  border: 1px solid #0a4bb5;
+  background: linear-gradient(180deg, #3db0ff 0%, #0f7bff 45%, #0056c8 100%);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: Tahoma, "MS Sans Serif", Geneva, sans-serif;
+}
+
+.game-reset:hover {
+  filter: brightness(1.05);
+}
